@@ -1,0 +1,13 @@
+{
+ "manifest_version": 3,
+  "name": "Care of Carl Scraper",
+  "version": "1.0",
+  "description": "Scrapes origin of product previews on careofcarl.de and displays them over the preview image.",
+  "content_scripts": [
+    {
+      "matches": [ "https://www.careofcarl.de/*" ],
+      "js": [ "js/coc.js" ],
+      "run_at": "document_end"
+    }
+  ]
+}
