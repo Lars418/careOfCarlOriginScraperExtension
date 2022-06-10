@@ -1,5 +1,4 @@
 const products = document.querySelectorAll('[data-quick]');
-const countriesToRemove = [ 'China', 'Sri Lanka', 'Indien', 'Vietnam', 'Kambodsha', 'Albanien', 'Tunesien', 'Bangladesh' ];
 
 products.forEach(async (p) => {
     await showOrigin(p);
@@ -9,11 +8,6 @@ async function showOrigin(p) {
     const productId = p.getAttribute('data-quick');
     const originCountry = await getOriginCountry(productId);
     const info = document.createElement('div');
-
-    /*if (countriesToRemove.includes(originCountry)) {
-        p.parentElement.removeChild(p);
-        return;
-    }*/
 
     info.textContent = originCountry;
     info.classList.add('__coc_country__');
