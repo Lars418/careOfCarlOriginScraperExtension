@@ -5,9 +5,27 @@
   "description": "Scrapes origin of product previews on careofcarl.de and displays them over the preview image.",
   "content_scripts": [
     {
-      "matches": [ "https://www.careofcarl.de/*" ],
+      "matches": [
+        "https://www.careofcarl.de/*",
+        "https://www.careofcarl.se/*",
+        "https://www.careofcarl.no/*",
+        "https://www.careofcarl.dk/*",
+        "https://www.careofcarl.fi/*",
+        "https://www.careofcarl.com/*"
+      ],
       "js": [ "js/coc.js" ],
       "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://www.aboutyou.de/*"
+      ],
+      "js": [ "js/aboutyou.js" ],
+      "run_at": "document_end"
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "sw.js"
+  },
+  "permissions": [ "storage" ]
 }
