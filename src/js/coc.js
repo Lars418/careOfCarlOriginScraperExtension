@@ -7,7 +7,7 @@ products.forEach(async (p) => {
 });
 
 async function showOrigin(p, origins) {
-    const productId = p.getAttribute('data-quick');
+    const productId = p.querySelector('.product__wishlist').getAttribute('data-id');
     const originCountry = await getOriginCountry(productId);
     const info = document.createElement('div');
 
@@ -40,7 +40,7 @@ async function getOriginCountry(productId) {
 document.addEventListener('keypress', (e) => {
     if (e.shiftKey && e.key === 'G') {
         chrome.storage.local.get('origins', ({ origins }) => {
-            const innerProducts = Array.from(document.querySelectorAll('[data-quick]'));
+            const innerProducts = Array.from(document.querySelectorAll('main article.product'));
 
             innerProducts.filter(p => !p.querySelector('.__coc_country__')).forEach(async (p) => {
                 await showOrigin(p, origins);
